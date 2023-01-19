@@ -33,7 +33,7 @@ public class RouteControllerTest {
 
         //when
         //then
-        mockMvc.perform(get("/api/route/from/to"))
+        mockMvc.perform(get("/routing/from/to"))
                 .andExpect(status().is(400));
 
     }
@@ -45,7 +45,7 @@ public class RouteControllerTest {
 
         //when
         //then
-        mockMvc.perform(get("/api/route/DEU/UKR"))
+        mockMvc.perform(get("/routing/DEU/UKR"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ \"route\": [\"DEU\",\"POL\",\"UKR\"]}"));
     }

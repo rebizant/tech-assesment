@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
 public class RouteController {
 
     private final RouteService routeService;
@@ -16,7 +15,7 @@ public class RouteController {
         this.routeService = routeService;
     }
 
-    @RequestMapping("/route/{origin}/{destination}")
+    @RequestMapping("/routing/{origin}/{destination}")
     public ResponseEntity<Route> calculateRoute(@PathVariable("origin") String origin, @PathVariable("destination") String destination) {
 
         return routeService.calculateRoute(origin, destination)
