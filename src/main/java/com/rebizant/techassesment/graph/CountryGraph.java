@@ -49,18 +49,17 @@ public class CountryGraph {
             return Collections.emptyList();
         }
 
-        Set<CountryNode> visited = new HashSet<>();
         LinkedList<RouteStep> queue = new LinkedList<>();
         queue.add(new RouteStep(new ArrayList<>(), originNode));
-        return findPath(destinationNode, queue, visited);
+        return findPath(destinationNode, queue);
     }
 
-    private List<String> findPath(CountryNode destination, LinkedList<RouteStep> queue, Set<CountryNode> visited) {
-
+    private List<String> findPath(CountryNode destination, LinkedList<RouteStep> queue) {
+        Set<CountryNode> visited = new HashSet<>();
         while (!queue.isEmpty()) {
             RouteStep routeStep = queue.poll();
             visited.add(routeStep.getNode());
-            Collection<CountryNode> neighbours = routeStep.getNode().getNeighbours();
+            Set<CountryNode> neighbours = routeStep.getNode().getNeighbours();
             if (neighbours.contains(destination)) {
                 return new RouteStep(routeStep.getPath(), destination).getPath();
             } else {

@@ -1,6 +1,9 @@
 package com.rebizant.techassesment.graph;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 class CountryNode {
 
@@ -16,7 +19,7 @@ class CountryNode {
         neighbours.add(neighbour);
     }
 
-    Collection<CountryNode> getNeighbours() {
+    Set<CountryNode> getNeighbours() {
         return Collections.unmodifiableSet(neighbours);
     }
 
